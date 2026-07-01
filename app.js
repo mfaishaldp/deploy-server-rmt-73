@@ -9,6 +9,7 @@ const authRouter = require("./routers/auth");
 const movieRouter = require("./routers/movies");
 const authentication = require("./middlewares/authentication");
 const errorHandler = require("./middlewares/errorHandler");
+const MovieController = require("./controllers/MovieController");
 
 //! middleware body-parser
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +17,7 @@ app.use(express.json());
 
 //! hello endpoint
 app.get("/", HelloController.getHello);
+app.get("/pub/movies", MovieController.getMovies);
 
 //! user endpoint
 app.use(authRouter);
